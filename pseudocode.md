@@ -33,8 +33,15 @@ Organism - The objects/functions that make the game and make it work properly
 
 # INIT
 
-1. FUNCTION createBOARD():
-    CONST boardTicTacToe - variable create 3x3 matrix 
+1. FUNCTION createBOARD(){
+    CONST boardTicTacToe =[
+        ['','',''],
+        ['','',''],
+        ['','','']
+    ]; - variable create 3x3 matrix/array (MAYBE???)
+
+    RETURN boardTicTacToe;
+}
 
 OR ticTacToeBoard.createElement
     -<table> element where inputs are placed
@@ -42,16 +49,18 @@ OR ticTacToeBoard.createElement
 2. FUNCTION playGame(){
     var playerOne = 'X'
     var playerTwo = 'O'
-    var staleMate = 'Stalemate!'
+    var staleMate = 'Stalemate'
+    var winner = 
 
         FUNCTION checkForWin(){
+            IF (threeInRow) = (window.alert("${winner} WINS!!!!")): 
+                {resetBoard;tallyScore};
 
-
-            IF threeInRow = (window.alert("${ } WINS!!!!")): {resetBoard;tallyScore}
-            IF boardIsFull(window.alert("STALEMATE! RESETTING BOARD...")): {resetBoard;tallyScore};
+            IF (boardIsFull) = (window.alert("STALEMATE! RESETTING BOARD...")): 
+                {resetBoard;tallyScore};
         }   
 
-        FUNCTION tallyScore() {
+        FUNCTION tallyScore(winner) {
             LET playerOneWin = 0;
             LET playerTwoWin = 0;
             LET stalemateWin = 0;
@@ -66,8 +75,8 @@ OR ticTacToeBoard.createElement
             }
         }
 
-        FUNCTION resetBoard(){
-            var clearBoard - variable that clears input of each square?
+        FUNCTION resetBoard() {
+            RETURN createBoard();
         }
 
 
