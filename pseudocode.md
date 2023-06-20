@@ -40,6 +40,13 @@ FUNCTION createBOARD(){                     //Creating a rough draft matrix/arra
         ['' , '' , '']
     ]; - variable create 3x3 matrix/array (MAYBE???)
 
+        another draft maybe that would make it easy to replace each????
+        [
+        [[''] , [''] , ['']],
+        [[''] , [''] , ['']],
+        [[''] , [''] , ['']]
+        ]
+
     RETURN boardTicTacToe;
 }
 OR                                          //Creating a table with buttons that have two options
