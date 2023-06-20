@@ -33,27 +33,39 @@ Organism - The objects/functions that make the game and make it work properly
 
 # INIT
 
-1. FUNCTION createBOARD(){
+FUNCTION createBOARD(){
     CONST boardTicTacToe =[
-        ['','',''],
-        ['','',''],
-        ['','','']
+        ['' , '' , ''],
+        ['' , '' , ''],
+        ['' , '' , '']
     ]; - variable create 3x3 matrix/array (MAYBE???)
 
     RETURN boardTicTacToe;
 }
+OR
+const xO =
+document.createElement("button");
+btn.innerHTML = "X/O";
+document.body.appendChild(xO);
 
-OR ticTacToeBoard.createElement
-    -<table> element where inputs are placed
+<table> element where inputs are placed. Maybe buttons .addEventListeners for triggers?
+
+**WHICH WOULD BE EASIER??????????**
 
 
 # RENDER
 
-2. FUNCTION playGame(){
+FUNCTION playGame(){
     var playerOne = 'X'
     var playerTwo = 'O'
     var staleMate = 'Stalemate'
     var winner = 
+
+        FUNCTION ticTacToeStatus(){       
+            IF 
+
+            RETURN checkForWin()
+        }
 
         FUNCTION checkForWin(){
             IF (threeInRow) = (window.alert("${winner} WINS!!!!")): 
@@ -81,9 +93,7 @@ OR ticTacToeBoard.createElement
         FUNCTION resetBoard() {
             RETURN createBoard();
         }
-
-
-   }
+}
 
 
 # END
