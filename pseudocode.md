@@ -33,7 +33,7 @@ Organism - The objects/functions create the setting of the game
 
 # INIT
 
-FUNCTION createBOARD(){
+FUNCTION createBOARD(){                     //Creating a rough draft matrix/array of how I am going to place the X's and O's
     CONST boardTicTacToe =[
         ['' , '' , ''],
         ['' , '' , ''],
@@ -42,8 +42,8 @@ FUNCTION createBOARD(){
 
     RETURN boardTicTacToe;
 }
-OR
-const xO =
+OR                                          //Creating a table with buttons that have two options
+const xO =                                  //OR create a single function button on each cell that alternates between X and O
 document.createElement("button");
 btn.innerHTML = "X/O";
 document.body.appendChild(xO);
@@ -55,19 +55,19 @@ document.body.appendChild(xO);
 
 # RENDER
 
-FUNCTION playGame(){
-    var playerOne = 'X'
+FUNCTION playGame(){                        //Overarching function for how the game functions
+    var playerOne = 'X'                     //Create the global variables for the players
     var playerTwo = 'O'
     var staleMate = 'Stalemate'
     var winner = 
 
-        FUNCTION ticTacToeStatus(){                             THE PART I NEED TO FIGURE OUT
+        FUNCTION ticTacToeStatus(){        //How it checks whether three in a row is achieved or stalemate(THE PART I NEED TO FIGURE OUT)
             IF  
 
             RETURN checkForWin()
         }
 
-        FUNCTION checkForWin(){
+        FUNCTION checkForWin(){            //Response for a win or stalement
             IF (threeInRow) = (window.alert("${winner} WINS!!!!")): 
                 {resetBoard;tallyScore};
 
@@ -75,7 +75,7 @@ FUNCTION playGame(){
                 {resetBoard;tallyScore};
         }   
 
-        FUNCTION tallyScore(winner) {
+        FUNCTION tallyScore(winner) {       //Scorecard tracker
             LET playerOneWin = 0;
             LET playerTwoWin = 0;
             LET stalemateWin = 0;
@@ -90,7 +90,7 @@ FUNCTION playGame(){
             }
         }
 
-        FUNCTION resetBoard() {
+        FUNCTION resetBoard() {             //Reset button or autoreset
             RETURN createBoard();
         }
 }
