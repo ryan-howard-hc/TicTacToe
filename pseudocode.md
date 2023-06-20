@@ -46,6 +46,9 @@ Organism - The objects/functions that make the game and make it work properly
 OR ticTacToeBoard.createElement
     -<table> element where inputs are placed
 
+
+# RENDER
+
 2. FUNCTION playGame(){
     var playerOne = 'X'
     var playerTwo = 'O'
@@ -83,4 +86,4 @@ OR ticTacToeBoard.createElement
    }
 
 
-
+# END
