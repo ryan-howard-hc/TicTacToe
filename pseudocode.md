@@ -27,7 +27,7 @@ Molecules - Button that resets the game
           - Actually displaying player choice on the board
           - Alert that the square is full if it is.
 
-Organism - The objects/functions that make the game and make it work properly
+Organism - The objects/functions create the setting of the game
          - All the functions when someone scores/stalemates
 <br>
 
@@ -61,8 +61,8 @@ FUNCTION playGame(){
     var staleMate = 'Stalemate'
     var winner = 
 
-        FUNCTION ticTacToeStatus(){       
-            IF 
+        FUNCTION ticTacToeStatus(){                             THE PART I NEED TO FIGURE OUT
+            IF  
 
             RETURN checkForWin()
         }
