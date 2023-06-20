@@ -61,8 +61,8 @@ FUNCTION playGame(){
     var staleMate = 'Stalemate'
     var winner = 
 
-        FUNCTION ticTacToeStatus(){       
-            IF 
+        FUNCTION ticTacToeStatus(){                             THE PART I NEED TO FIGURE OUT
+            IF  
 
             RETURN checkForWin()
         }
