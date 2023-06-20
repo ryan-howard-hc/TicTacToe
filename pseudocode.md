@@ -25,26 +25,29 @@ Molecules - Button that resets the game
           - Alerts that display (X or O)Win or Stalemate
           - Scorebox that tracks them
           - Actually displaying player choice on the board
+          - Alert that the square is full if it is.
 
 Organism - The objects/functions that make the game and make it work properly
          - All the functions when someone scores/stalemates
-
-
-
-
-
-
 <br>
 
 # INIT
-FUNCTION createBOARD():
+
+1. FUNCTION createBOARD():
     const board - variable create 3x3 matrix 
 
 OR ticTacToeBoard.createElement
     -<table> element where inputs are placed
-<br>
-FUNCTION checkForWin():
-    const threeInRow
 
-if (boardIsFull) {resetBoard};
+2. FUNCTION playGame(){
+    var playerOne = 'X'
+    var playerTwo = 'O'
+FUNCTION checkForWin():
+    const threeInRow = window.alert("${} WINS!!!!")
+
+
+    IF boardIsFull(window.alert("STALEMATE! RESETTING BOARD...")): {resetBoard};
+}
+
+
 
