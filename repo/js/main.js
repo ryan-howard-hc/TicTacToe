@@ -34,11 +34,12 @@ function attachTableToButton() {
 
 function createBOARD() {
     var board = document.createElement("table");
-    
+    board.classList.add("table", "table-bordered");
+
     var rowOneRow =document.createElement("tr");
     rowOneRow.innerHTML =rowOne.map(value => `<td>${value}</td>`).join('');
         board.appendChild(rowOneRow);
-  
+    
 
     var rowTwoRow =document.createElement("tr");
     rowTwoRow.innerHTML =rowTwo.map(value => `<td>${value}</td>`).join('');
