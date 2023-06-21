@@ -113,9 +113,10 @@ document.body.appendChild(xO);
 - WILL have a scorecard tracker
 - WILL add through incrementing
 - WILL use 
-        (4c)FUNCTION resetBoard() {             //Reset button or autoreset
+        (4c)FUNCTION resetBoard() {   
             RETURN createBoard();
         }
+- Reset button or autoreset
 }
 
 
