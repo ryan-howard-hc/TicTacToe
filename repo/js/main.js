@@ -3,7 +3,7 @@ var playerOne = 'X';                  //Create the global variables for the play
 var playerTwo = 'O';
 var staleMate = 'Stalemate';
 // var winner =;
-let playerOneWin = 0;   //starts at zero
+let playerOneWin = 0;   //score starts at zero
 let playerTwoWin = 0;
 let stalemateWin = 0;
 // var threeInRow =;
@@ -11,12 +11,9 @@ let stalemateWin = 0;
 function attachTableToButton() {
     document.getElementById("app").appendChild(createBOARD()); //took the app div and appended the createBOARD function to it
   }                                                            //which is what makes the tictactoe board and resets the table
-  var button = document.getElementById("resetBoard");           
-  button.addEventListener("click", attachTableToButton);
-
-//   function attachTableToButton() {                       //much more convoluted way of doing this from weather app project
-//     var appTable = createBOARD();
-//     var appDiv = document.getElementById("app");
+//   function attachTableToButton() {                       
+//     var appTable = createBOARD();                        
+//     var appDiv = document.getElementById("app");         //<<<<< much more convoluted way of doing this from weather app project
 //     appDiv.appendChild(appTable);
 //   }
 
@@ -25,9 +22,24 @@ function attachTableToButton() {
 //     [4,5,6],
 //     [7,8,9]
 // ]; 
-
+var button = document.getElementById("resetBoard");           
+button.addEventListener("click", attachTableToButton) 
 
 function createBOARD() {
+    const button = document.getElementById("chooseTile");
+    let onOff = false;
+
+    button.addEventListener("click", function() {
+        if (onOff) {
+          button.textContent = "X";
+          onOff = false;
+        } else {
+          button.textContent = "O";
+          onOff = true;
+        }
+        button.style.display = "none";
+      });
+
     var board = document.createElement("table");
     board.classList.add("table", "table-bordered");
 
@@ -57,18 +69,7 @@ function createBOARD() {
     //   rowThreeRow.appendChild(cell);
     // });
     // board.appendChild(rowThreeRow);
-    const button = document.getElementById("chooseTile");
-    let onOff = false;
 
-    button.addEventListener("click", function() {
-        if (onOff) {
-          button.textContent = "X";
-          onOff = false;
-        } else {
-          button.textContent = "O";
-          onOff = true;
-        }
-      });
   
     return board;
   }
