@@ -6,10 +6,6 @@ var staleMate = 'Stalemate';
 let playerOneWin = 0;   //starts at zero
 let playerTwoWin = 0;
 let stalemateWin = 0;
-
-var rowOne = ['1', '2', '3'];
-var rowTwo = ['4', '5', '6'];
-var rowThree = ['7', '8', '9'];
 // var threeInRow =;
 
 function attachTableToButton() {
@@ -31,10 +27,13 @@ function attachTableToButton() {
 // ]; 
 
 
-
 function createBOARD() {
     var board = document.createElement("table");
     board.classList.add("table", "table-bordered");
+
+    var rowOne = ['1', '2', '3'];
+    var rowTwo = ['4', '5', '6'];
+    var rowThree = ['7', '8', '9'];
 
     var rowOneRow =document.createElement("tr");
     rowOneRow.innerHTML =rowOne.map(value => `<td class="d-table-cell p-5 bd-highlight">${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
@@ -58,6 +57,18 @@ function createBOARD() {
     //   rowThreeRow.appendChild(cell);
     // });
     // board.appendChild(rowThreeRow);
+    const button = document.getElementById("chooseTile");
+    let onOff = false;
+
+    button.addEventListener("click", function() {
+        if (onOff) {
+          button.textContent = "X";
+          onOff = false;
+        } else {
+          button.textContent = "O";
+          onOff = true;
+        }
+      });
   
     return board;
   }
