@@ -26,8 +26,13 @@ var button = document.getElementById("resetBoard");
 button.addEventListener("click", attachTableToButton) 
 
 function createBOARD() {
+   
+   
+   
+   
     const button = document.getElementById("chooseTile");
     let onOff = false;
+
 
     button.addEventListener("click", function() {
         if (onOff) {
@@ -37,28 +42,29 @@ function createBOARD() {
           button.textContent = "O";
           onOff = true;
         }
-        button.style.display = "none";
+        // button.style.display = "none";
       });
+
+
 
     var board = document.createElement("table");
     board.classList.add("table", "table-bordered");
 
     var rowOne = ['1', '2', '3'];
-    var rowTwo = ['4', '5', '6'];
-    var rowThree = ['7', '8', '9'];
 
     var rowOneRow =document.createElement("tr");
-    rowOneRow.innerHTML =rowOne.map(value => `<td class="d-table-cell p-5 bd-highlight">${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
+    rowOneRow.innerHTML =rowOne.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
     board.appendChild(rowOneRow);
 
-
+    var rowTwo = ['4', '5', '6'];
     var rowTwoRow =document.createElement("tr");
-    rowTwoRow.innerHTML =rowTwo.map(value => `<td class="d-table-cell p-5 bd-highlight">${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
+    rowTwoRow.innerHTML =rowTwo.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
     board.appendChild(rowTwoRow);
     //the innerHTML only works because the table is attached to the document up above
 
+    var rowThree = ['7', '8', '9'];
     var rowThreeRow = document.createElement("tr");
-    rowThreeRow.innerHTML = rowThree.map(value => `<td class="d-table-cell p-5 bd-highlight">${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join(''); //used the map function to append the values of the variable rowTwo to each cell of the row
+    rowThreeRow.innerHTML = rowThree.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join(''); //used the map function to append the values of the variable rowTwo to each cell of the row
     board.appendChild(rowThreeRow);                                 //.join gets rid of the the commas
 
     // ^ ABOVE IS THE LESS CONVOLUTED WAY ^
