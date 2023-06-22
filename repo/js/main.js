@@ -34,14 +34,12 @@ function createBOARD() {
 
   rows.forEach(function(row) {
         var tableRow = document.createElement("tr");    
-    
-    function changeXCell(cell,content) {
-      cell.innerHTML="X";
-      cell.textContent =content;
-    }
+
+function changeXCell(cell, content) {
+  cell.textContent = content;
+} 
 
     function changeOCell(cell,content) { //the content is tied only to the content within the function? so why isnt it working?
-      cell.innerHTML="O";
       cell.textContent =content;
     }
 
@@ -53,15 +51,15 @@ function createBOARD() {
           buttonX.classList.add("btn", "btn-primary", "choose-tile");
           buttonX.textContent = "X";
               buttonX.addEventListener("click",function (){
-                changeXCell(cell,buttonX.content);
+                changeXCell(cell,buttonX.textContent);              //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
               });
 
           var buttonO = document.createElement("button");
           buttonO.classList.add("btn", "btn-primary", "choose-tile");
           buttonO.textContent = "O";
             buttonO.addEventListener("click",function (){
-              changeOCell(cell, buttonO.content);
-            });
+              changeOCell(cell, buttonO.textContent);
+            }); 
 
           cell.appendChild(buttonX);
           cell.appendChild(buttonO);
