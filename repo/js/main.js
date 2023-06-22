@@ -1,4 +1,6 @@
 
+
+
 var playerOne = 'X';                  //Create the global variables for the players
 var playerTwo = 'O';
 var staleMate = 'Stalemate';
@@ -7,6 +9,8 @@ let playerOneWin = 0;   //score starts at zero
 let playerTwoWin = 0;
 let stalemateWin = 0;
 // var threeInRow =;
+
+
 
 function attachTableToButton() {
     document.getElementById("app").appendChild(createBOARD()); //took the app div and appended the createBOARD function to it
@@ -20,6 +24,15 @@ function attachTableToButton() {
 const button = document.getElementById("chooseTile"); 
 let onOff = false;
 
+function currentPlayer() {
+  var characterInput = document.getElementById("characterInput");
+  if (characterInput.value === "TURN X") {
+    characterInput.value = "TURN O";
+  } else {
+    characterInput.value = "TURN X";
+  }
+}
+
 function createBOARD() {
   var board = document.createElement("table");
   board.classList.add("table", "table-bordered");
@@ -30,14 +43,14 @@ function createBOARD() {
         ['7', '8', '9']
       ];
     
-
+      document.getElementById("characterInput").value = "TURN X";
 
   rows.forEach(function(row) {
         var tableRow = document.createElement("tr");    
 
-function changeXCell(cell, content) {
-  cell.textContent = content;
-} 
+    function changeXCell(cell, content) {
+      cell.textContent = content;
+    } 
 
     function changeOCell(cell,content) { //the content is tied only to the content within the function? so why isnt it working?
       cell.textContent =content;
@@ -50,15 +63,19 @@ function changeXCell(cell, content) {
           var buttonX = document.createElement("button");
           buttonX.classList.add("btn", "btn-primary", "choose-tile");
           buttonX.textContent = "X";
+          buttonX.setAttribute("data-selected", "true");
               buttonX.addEventListener("click",function (){
-                changeXCell(cell,buttonX.textContent);              //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
+                changeXCell(cell,buttonX.textContent);         //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
+                currentPlayer();              
               });
 
           var buttonO = document.createElement("button");
           buttonO.classList.add("btn", "btn-primary", "choose-tile");
           buttonO.textContent = "O";
+          buttonO.setAttribute("data-selected", "true");
             buttonO.addEventListener("click",function (){
               changeOCell(cell, buttonO.textContent);
+              currentPlayer();
             }); 
 
           cell.appendChild(buttonX);
