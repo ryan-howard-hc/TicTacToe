@@ -25,26 +25,28 @@ function createBOARD() {
       board.classList.add("table", "table-bordered");
     
       var rows = [
-        ['1', '2', '3'],
+        ['1', '2', '3'],   //nested arrays allow me to control them all without having to have row variables for each
         ['4', '5', '6'],
         ['7', '8', '9']
       ];
     
       rows.forEach(function(row) {
-        var tableRow = document.createElement("tr");
+        var tableRow = document.createElement("tr");    
     
         row.forEach(function(value) {
-          var cell = document.createElement("td");
-          cell.classList.add("d-table-cell", "p-5", "bd-highlight");
+          var cell = document.createElement("td");      //got rid of the .maps that extrapolate to each string literal
+          cell.classList.add("d-table-cell", "p-5", "bd-highlight");   
     
           var buttonX = document.createElement("button");
           buttonX.classList.add("btn", "btn-primary", "choose-tile");
           buttonX.textContent = "X";
+            buttonX.addEventListener("click");
 
           var buttonO = document.createElement("button");
           buttonO.classList.add("btn", "btn-primary", "choose-tile");
           buttonO.textContent = "O";
-    
+            buttonO.addEventListener("click");
+
           cell.appendChild(buttonX);
           cell.appendChild(buttonO);
           cell.insertAdjacentHTML("beforeend", `<span class="btn-text">${value}</span>`);
@@ -54,21 +56,6 @@ function createBOARD() {
         board.appendChild(tableRow);
       });
     
-
-      board.addEventListener("click", function(event) {
-        if (event.target.classList.contains("choose-tile")) {
-          var button = event.target;
-          var buttonText = button.textContent;
-          
-          if (buttonText === "Choose tile") {
-            button.textContent = "X";
-
-          } else {
-            button.textContent = "O";
-
-          }
-        }
-      });
     
       return board;
     }
