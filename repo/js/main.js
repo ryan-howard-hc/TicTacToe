@@ -40,7 +40,7 @@ function createBOARD() {
       cell.textContent =content;
     }
 
-    function changeOCell(cell,content) {
+    function changeOCell(cell,content) { //the content is tied only to the content within the function? so why isnt it working?
       cell.innerHTML="O";
       cell.textContent =content;
     }
