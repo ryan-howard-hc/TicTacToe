@@ -1,4 +1,6 @@
-
+document.getElementById('buttonReset').addEventListener('click', function() {
+  location.reload();
+});
 
 
 var playerOne = 'X';                  //Create the global variables for the players
