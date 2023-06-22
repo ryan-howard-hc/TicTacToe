@@ -17,69 +17,55 @@ function attachTableToButton() {
 //     appDiv.appendChild(appTable);
 //   }
 
-// const boardTicTacToe =[
-//     [1,2,3],
-//     [4,5,6],
-//     [7,8,9]
-// ]; 
 var button = document.getElementById("resetBoard");           
 button.addEventListener("click", attachTableToButton) 
 
 function createBOARD() {
-   
-   
-   
-   
-    const button = document.getElementById("chooseTile");
-    let onOff = false;
+  var board = document.createElement("table");
+  board.classList.add("table", "table-bordered");
 
+  var rows = [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9']
+  ];
 
-    button.addEventListener("click", function() {
-        if (onOff) {
-          button.textContent = "X";
-          onOff = false;
-        } else {
-          button.textContent = "O";
-          onOff = true;
-        }
-        // button.style.display = "none";
-      });
+  rows.forEach(function(row) {
+    var tableRow = document.createElement("tr");
 
+    row.forEach(function(value) {
+      var cell = document.createElement("td");
+      cell.classList.add("d-table-cell", "p-5", "bd-highlight");
 
+      var button = document.createElement("button");
+      button.classList.add("btn", "btn-primary", "choose-tile");
+      button.textContent = "";
 
-    var board = document.createElement("table");
-    board.classList.add("table", "table-bordered");
+      cell.appendChild(button);
+      cell.insertAdjacentHTML("beforeend", `<span class="btn-text">${value}</span>`);
+      tableRow.appendChild(cell);
+    });
 
-    var rowOne = ['1', '2', '3'];
+    board.appendChild(tableRow);
+  });
 
-    var rowOneRow =document.createElement("tr");
-    rowOneRow.innerHTML =rowOne.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
-    board.appendChild(rowOneRow);
+  board.addEventListener("click", function(event) {
+    if (event.target.classList.contains("choose-tile")) {
+      var button = event.target;
+      var buttonText = button.textContent;
+      
+      if (buttonText === "Choose tile") {
+        button.textContent = "X";
 
-    var rowTwo = ['4', '5', '6'];
-    var rowTwoRow =document.createElement("tr");
-    rowTwoRow.innerHTML =rowTwo.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join('');
-    board.appendChild(rowTwoRow);
-    //the innerHTML only works because the table is attached to the document up above
+      } else {
+        button.textContent = "O";
 
-    var rowThree = ['7', '8', '9'];
-    var rowThreeRow = document.createElement("tr");
-    rowThreeRow.innerHTML = rowThree.map(value => `<td class="d-table-cell p-5 bd-highlight"><span class="btn-text"></span>${value}<button class="btn btn-primary choose-tile">Choose tile</button></td>`).join(''); //used the map function to append the values of the variable rowTwo to each cell of the row
-    board.appendChild(rowThreeRow);                                 //.join gets rid of the the commas
+      }
+    }
+  });
 
-    // ^ ABOVE IS THE LESS CONVOLUTED WAY ^
-    // var rowThreeRow = document.createElement("tr");
-    // rowThree.forEach(function(value) {
-    //   var cell = document.createElement("td");
-    //   cell.textContent = value;
-    //   rowThreeRow.appendChild(cell);
-    // });
-    // board.appendChild(rowThreeRow);
-
-  
-    return board;
-  }
-
+  return board;
+}
 
 
 
