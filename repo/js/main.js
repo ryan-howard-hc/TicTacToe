@@ -17,10 +17,10 @@ function attachTableToButton() {
 //     appDiv.appendChild(appTable);
 //   }
 
-    const button = document.getElementById("chooseTile");
-    let onOff = false;
+const button = document.getElementById("chooseTile");
+let onOff = false;
 
-    function createBOARD() {
+function createBOARD() {
       var board = document.createElement("table");
       board.classList.add("table", "table-bordered");
     
@@ -37,11 +37,16 @@ function attachTableToButton() {
           var cell = document.createElement("td");
           cell.classList.add("d-table-cell", "p-5", "bd-highlight");
     
-          var button = document.createElement("button");
-          button.classList.add("btn", "btn-primary", "choose-tile");
-          button.textContent = "Choose tile";
+          var buttonX = document.createElement("button");
+          buttonX.classList.add("btn", "btn-primary", "choose-tile");
+          buttonX.textContent = "X";
+
+          var buttonO = document.createElement("button");
+          buttonO.classList.add("btn", "btn-primary", "choose-tile");
+          buttonO.textContent = "O";
     
-          cell.appendChild(button);
+          cell.appendChild(buttonX);
+          cell.appendChild(buttonO);
           cell.insertAdjacentHTML("beforeend", `<span class="btn-text">${value}</span>`);
           tableRow.appendChild(cell);
         });
@@ -67,7 +72,7 @@ function attachTableToButton() {
     
       return board;
     }
-    
+    attachTableToButton();
 
 
 
