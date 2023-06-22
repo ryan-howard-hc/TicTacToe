@@ -103,7 +103,19 @@ var winningCombinations = [
 ];
 
 function checkForWin(){
-  
+  var cells =document.querySelectorAll("td");
+
+  for (var i = 0; i < winningCombinations.length; i++) {
+    var [a,b,c] = winningCombinations[i];
+    if (
+      cells[a].textContent === player && 
+      cells[b].textContent === player &&
+      cells[c].textContent
+    ) {
+    return true;
+  }
+  }
+  return false;
 }
 // function playGame(){                        //Overarching function for how the game functions
 //         function ticTacToeStatus(){        //How it checks whether three in a row is achieved or stalemate(THE PART I NEED TO FIGURE OUT)
