@@ -14,38 +14,54 @@ function attachTableToButton() {
 //   function attachTableToButton() {                       
 //     var appTable = createBOARD();                        
 //     var appDiv = document.getElementById("app");         //<<<<< much more convoluted way of doing this from weather app project
-//     appDiv.appendChild(appTable);
+//     appDiv.appendChild(appTable);                        
 //   }
 
-const button = document.getElementById("chooseTile");
+const button = document.getElementById("chooseTile"); 
 let onOff = false;
 
 function createBOARD() {
-      var board = document.createElement("table");
-      board.classList.add("table", "table-bordered");
+  var board = document.createElement("table");
+  board.classList.add("table", "table-bordered");
     
-      var rows = [
+  var rows = [
         ['1', '2', '3'],   //nested arrays allow me to control them all without having to have row variables for each
         ['4', '5', '6'],
         ['7', '8', '9']
       ];
     
-      rows.forEach(function(row) {
+
+
+  rows.forEach(function(row) {
         var tableRow = document.createElement("tr");    
     
-        row.forEach(function(value) {
+    function changeXCell(cell,content) {
+      cell.innerHTML="X";
+      cell.textContent =content;
+    }
+
+    function changeOCell(cell,content) {
+      cell.innerHTML="O";
+      cell.textContent =content;
+    }
+
+    row.forEach(function(value) {
           var cell = document.createElement("td");      //got rid of the .maps that extrapolate to each string literal
           cell.classList.add("d-table-cell", "p-5", "bd-highlight");   
     
           var buttonX = document.createElement("button");
           buttonX.classList.add("btn", "btn-primary", "choose-tile");
           buttonX.textContent = "X";
-            buttonX.addEventListener("click");
+              buttonX.addEventListener("click",function (){
+                changeXCell(cell,buttonX.content);
+              });
 
           var buttonO = document.createElement("button");
           buttonO.classList.add("btn", "btn-primary", "choose-tile");
           buttonO.textContent = "O";
-            buttonO.addEventListener("click");
+            buttonO.addEventListener("click",function (){
+              changeOCell(cell, buttonO.content);
+            });
 
           cell.appendChild(buttonX);
           cell.appendChild(buttonO);
@@ -55,11 +71,12 @@ function createBOARD() {
     
         board.appendChild(tableRow);
       });
+
     
-    
-      return board;
-    }
-    attachTableToButton();
+  return board;
+}
+
+attachTableToButton();
 
 
 
