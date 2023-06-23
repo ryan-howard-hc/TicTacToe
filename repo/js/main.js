@@ -2,15 +2,11 @@ document.getElementById('buttonReset').addEventListener('click', function () {
     location.reload();
 });
 
-
 var playerOne = 'X'; // Create the global variables for the players
 var playerTwo = 'O';
-// var winner =;
 let playerOneWin = 0; // score starts at zero
 let playerTwoWin = 0;
 let stalemateWin = 0;
-// var threeInRow =;
-
 
 function attachTableToButton() {
     document.getElementById("app").appendChild(createBOARD()); // took the app div and appended the createBOARD function to it
@@ -23,7 +19,8 @@ function attachTableToButton() {
 // }
 
 const button = document.getElementById("chooseTile");
-let onOff = false;
+
+document.getElementById("characterInput").value = "TURN X"; //makes starting turn in the input box
 
 function currentPlayer() {
     var characterInput = document.getElementById("characterInput");
@@ -39,18 +36,10 @@ function createBOARD() {
     board.classList.add("table", "table-bordered");
 
     var rows = [
-        [
-            '1', '2', '3'
-        ], // nested arrays allow me to control them all without having to have row variables for each
-        [
-            '4', '5', '6'
-        ],
-        [
-            '7', '8', '9'
-        ]
+        ['1', '2', '3'], // nested arrays allow me to control them all without having to have row variables for each
+        ['4', '5', '6'],
+        ['7', '8', '9']
     ];
-
-    document.getElementById("characterInput").value = "TURN X";
 
     rows.forEach(function (row) {
         var tableRow = document.createElement("tr");
@@ -103,42 +92,22 @@ function createBOARD() {
             cell.insertAdjacentHTML("beforeend", `<span class="btn-text">${value}</span>`);
             tableRow.appendChild(cell); // beforeend => Just inside the element, after its last child.
         });
-
         board.appendChild(tableRow);
     });
-
-
     return board;
 }
-
 attachTableToButton();
 
 
 var winningCombinations = [
-    [
-        0, 1, 2
-    ],
-    [
-        3, 4, 5
-    ],
-    [
-        6, 7, 8
-    ],
-    [
-        0, 3, 6
-    ],
-    [
-        1, 4, 7
-    ],
-    [
-        2, 5, 8
-    ],
-    [
-        0, 4, 8
-    ],
-    [
-        2, 4, 6
-    ]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
 ];
 
 function checkForWin(player) {
