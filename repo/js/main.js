@@ -66,25 +66,34 @@ function createBOARD() {
           buttonX.classList.add("btn", "btn-primary", "choose-tile");
           buttonX.textContent = "X";
           buttonX.setAttribute("data-selected", "true");
-              buttonX.addEventListener("click",function (){
-                changeXCell(cell,buttonX.textContent);
-                if (checkWin (playerOne)) {
-                  playerOneWin++;
-                  alert("Player X VICTORY! SUCK IT PLAYER O!");
-                  resetGame();
-
-                }                                               //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
-                currentPlayer();              
-              });
+          buttonX.addEventListener("click", function() {
+            changeXCell(cell, buttonX.textContent);
+            if (checkForWin(playerOne)) {
+              playerOneWin++;
+              alert("Player X VICTORY! SUCK IT PLAYER O!");
+            } else if (checkStalemate()) {
+              stalemateWin++;
+            } else {
+              currentPlayer();
+            }
+          });
 
           var buttonO = document.createElement("button");
           buttonO.classList.add("btn", "btn-primary", "choose-tile");
           buttonO.textContent = "O";
           buttonO.setAttribute("data-selected", "true");
-            buttonO.addEventListener("click",function (){
-              changeOCell(cell, buttonO.textContent);
+          buttonO.addEventListener("click", function() {
+            changeOCell(cell, buttonO.textContent);
+            if (checkForWin(playerTwo)) {
+              playerTwoWin++;
+              alert("Player O VICTORY! SUCK IT PLAYER X!")
+            } else if (checkStalemate()) {
+              stalemateWin++;
+            } else {
               currentPlayer();
-            }); 
+            }
+            currentPlayer();
+          });
 
           cell.appendChild(buttonX);
           cell.appendChild(buttonO);
@@ -108,7 +117,7 @@ var winningCombinations = [
   [0, 4, 8], [2, 4, 6] 
 ];
 
-function checkForWin(){
+function checkForWin(player){
   var cells =document.querySelectorAll("td");
 
   for (var i = 0; i < winningCombinations.length; i++) {
