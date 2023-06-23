@@ -5,12 +5,17 @@ The board is a 3x3 square. 2 players alternate by putting an X or an O on each s
 ## Requirements
 MoSCoW - Must, Should, Could, Wont
 
-1. Must - A board to play on
-         - Two alternating tags for X and O
-         - A button that can reset the board
-2. Should - A way to track wins/losses/stalemates   
-3. Could - Utilize Classes instead of functional code to build the game
-          - A bar where players enter their ID/Name
+1. Must - A board to play on                                                CHECK
+         - Two alternating tags for X and O                                 CHECK KIND OF
+         - A button that can reset the board                                CHECK
+         - TILE cant be clicked after clicked once                          CHECK
+         - RESTART GAME BUTTON/NEW GAME BUTTON                              CHECK
+         - WINNER ALERT                                                     CHECK
+         - GAME CONTINUES UNTIL WIN OR LOSS OR STALEMATE                    CHECK
+         - ONLY ONE HTML DIV                                                CHECK
+2. Should - A way to track wins/losses/stalemates                           
+3. Could - Utilize Classes instead of functional code to build the game     MOSTLY CHECK
+          - A bar where players enter their ID/Name                         
           - Rules link in a popup/dialog box(modal)
           - AI CAPABILITIES
           - Turn project into connect four as alternative
@@ -121,3 +126,6 @@ document.body.appendChild(xO);
 
 
 # END
+
+
+
