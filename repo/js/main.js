@@ -89,8 +89,6 @@ function createBOARD() {
               alert("Player O VICTORY! SUCK IT PLAYER X!")
             } else if (checkStalemate()) {
               stalemateWin++;
-            } else {
-              currentPlayer();
             }
             currentPlayer();
           });
@@ -125,7 +123,7 @@ function checkForWin(player){
     if (
       cells[a].textContent === player && 
       cells[b].textContent === player &&
-      cells[c].textContent
+      cells[c].textContent ===player
     ) {
     return true;
   }
