@@ -16,11 +16,11 @@ td {
 }
 
 .choose-tile {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     padding: 0;
-    vertical-align: middle !important;
     font-size: large !important;
+    line-height: 1 !important;
 }
 
 .btn-text {
