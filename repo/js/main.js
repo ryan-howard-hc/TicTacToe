@@ -31,6 +31,11 @@ function currentPlayer() {
     }
 }
 
+function updateScore(){
+    var score = document.getElementById("scoreText");
+    score.textContent = `Player X Wins ${playerOneWin}| Player O Wins ${playerTwoWin}| Stalemates ${stalemateWin} `;
+}
+
 function createBOARD() {
     var board = document.createElement("table");
     board.classList.add("table", "table-bordered");
