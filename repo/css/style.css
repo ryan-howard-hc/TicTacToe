@@ -1,0 +1,29 @@
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+td {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 36px !important;
+    font-weight: bolder !important;
+    border: 2px solid black !important;
+    box-sizing: content-box;
+}
+
+.choose-tile {
+    width: 60%;
+    height: 60%;
+    padding: 0;
+    vertical-align: middle !important;
+    font-size: large !important;
+}
+
+.btn-text {
+    display: none;
+}
+

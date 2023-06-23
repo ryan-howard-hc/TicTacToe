@@ -73,9 +73,9 @@ function createBOARD() {
               alert("Player X VICTORY! SUCK IT PLAYER O!");
             } else if (checkStalemate()) {
               stalemateWin++;
-            } else {
-              currentPlayer();
             }
+              currentPlayer();
+            
           });
 
           var buttonO = document.createElement("button");
@@ -90,13 +90,13 @@ function createBOARD() {
             } else if (checkStalemate()) {
               stalemateWin++;
             }
-            currentPlayer();
+            currentPlayer();   // for some reason the added else was making the currentPlayer function not work?
           });
 
           cell.appendChild(buttonX);
           cell.appendChild(buttonO);
           cell.insertAdjacentHTML("beforeend", `<span class="btn-text">${value}</span>`);
-          tableRow.appendChild(cell);
+          tableRow.appendChild(cell);  //beforeend => Just inside the element, after its last child.
         });
     
         board.appendChild(tableRow);
