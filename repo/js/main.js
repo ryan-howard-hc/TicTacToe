@@ -67,7 +67,13 @@ function createBOARD() {
           buttonX.textContent = "X";
           buttonX.setAttribute("data-selected", "true");
               buttonX.addEventListener("click",function (){
-                changeXCell(cell,buttonX.textContent);         //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
+                changeXCell(cell,buttonX.textContent);
+                if (checkWin (playerOne)) {
+                  playerOneWin++;
+                  alert("Player X VICTORY! SUCK IT PLAYER O!");
+                  resetGame();
+
+                }                                               //had buttonX.content instead of buttonX.textContext! YEEHAWWWW
                 currentPlayer();              
               });
 
@@ -116,6 +122,16 @@ function checkForWin(){
   }
   }
   return false;
+}
+
+function checkStalemate() {
+  var cells =document.querySelectorAll("td");
+  for (var i = 0; i <cells.length; i++) {
+    if (cells[i].textContent === "") {        //if an empty cell is found, game isnt over
+      return false;
+    }
+  }
+  return true;
 }
 // function playGame(){                        //Overarching function for how the game functions
 //         function ticTacToeStatus(){        //How it checks whether three in a row is achieved or stalemate(THE PART I NEED TO FIGURE OUT)
