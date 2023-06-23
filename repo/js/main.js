@@ -102,7 +102,7 @@ function createBOARD() {
     return board;
 }
 attachTableToButton();
-
+updateScore();
 
 var winningCombinations = [
     [0, 1, 2],
