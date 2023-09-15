@@ -7,6 +7,7 @@ var playerTwo = 'O';
 let playerOneWin = 0; // score starts at zero
 let playerTwoWin = 0;
 let stalemateWin = 0;
+let movesMade = 0;
 
 function attachTableToButton() {
     document.getElementById("app").appendChild(createBOARD()); // took the app div and appended the createBOARD function to it
@@ -67,14 +68,18 @@ function createBOARD() {
             buttonX.setAttribute("data-selected", "true");
             buttonX.addEventListener("click", function () {
                 changeXCell(cell, buttonX.textContent);
+                movesMade++;
                 if (checkForWin(playerOne)) {
                     playerOneWin++;
+                    updateScore();
                     alert("Player X VICTORY! SUCK IT PLAYER O!");
-                } else if (checkStalemate()) {
+                } else if (movesMade === 9) { // Check for stalemate when all moves are made
                     stalemateWin++;
+                    updateScore();
+                    alert("Stalemate!");
+                } else {
+                    currentPlayer();
                 }
-                currentPlayer();
-
             });
 
             var buttonO = document.createElement("button");
@@ -83,13 +88,18 @@ function createBOARD() {
             buttonO.setAttribute("data-selected", "true");
             buttonO.addEventListener("click", function () {
                 changeOCell(cell, buttonO.textContent);
+                movesMade++;
                 if (checkForWin(playerTwo)) {
                     playerTwoWin++;
-                    alert("Player O VICTORY! SUCK IT PLAYER X!")
-                } else if (checkStalemate()) {
+                    updateScore();
+                    alert("Player O VICTORY! SUCK IT PLAYER X!");
+                } else if (movesMade === 9) { // Check for stalemate when all moves are made
                     stalemateWin++;
+                    updateScore();
+                    alert("Stalemate!");
+                } else {
+                    currentPlayer();
                 }
-                currentPlayer(); // for some reason the added else was making the currentPlayer function not work?
             });
 
             cell.appendChild(buttonX);
