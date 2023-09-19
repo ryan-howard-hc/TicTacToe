@@ -1,5 +1,10 @@
-document.getElementById('buttonReset').addEventListener('click', function () {
-    location.reload();
+document.getElementById('buttonResetBoard').addEventListener('click', function () {
+    // Reset the board
+    resetBoard();
+});
+document.getElementById('buttonClearScore').addEventListener('click', function () {
+    // Clear the scoreboard
+    clearScoreboard();
 });
 
 var currentPlayerSymbol = 'X';
@@ -8,6 +13,24 @@ var playerTwo = 'O';
 let playerOneWin = 0;
 let playerTwoWin = 0;
 let stalemateWin = 0;
+
+
+function resetBoard() {
+    var cells = document.querySelectorAll("td button");
+    cells.forEach(function (cell) {
+        cell.textContent = "";
+        cell.setAttribute("data-selected", "false");
+    });
+    currentPlayerSymbol = 'X';
+    document.getElementById("characterInput").value = "TURN X";
+}
+
+function clearScoreboard() {
+    playerOneWin = 0;
+    playerTwoWin = 0;
+    stalemateWin = 0;
+    updateScore();
+}
 
 function attachTableToButton() {
     document.getElementById("app").appendChild(createBOARD());
@@ -54,13 +77,13 @@ function createBOARD() {
                     button.setAttribute("data-selected", "true");
 
                     if (checkForWin(currentPlayerSymbol)) {
-                        if (currentPlayerSymbol === 'X') {
-                            playerOneWin++;
-                            alert("Player X VICTORY! SUCK IT PLAYER O!");
-                        } else {
-                            playerTwoWin++;
-                            alert("Player O VICTORY! SUCK IT PLAYER X!")
-                        }
+                        // if (currentPlayerSymbol === 'X') {
+                        //     playerOneWin++;
+                        //     alert("Player X VICTORY! SUCK IT PLAYER O!");
+                        // } else {
+                        //     playerTwoWin++;
+                        //     alert("Player O VICTORY! SUCK IT PLAYER X!")
+                        // }
                     } else if (checkStalemate()) {
                         stalemateWin++;
                     }
@@ -97,6 +120,13 @@ function checkForWin(player) {
     for (var i = 0; i < winningCombinations.length; i++) {
         var [a, b, c] = winningCombinations[i];
         if (cells[a].textContent === player && cells[b].textContent === player && cells[c].textContent === player) {
+            if (player === 'X') {
+                playerOneWin++;
+                alert("Player X VICTORY! SUCK IT PLAYER O!");
+            } else {
+                playerTwoWin++;
+                alert("Player O VICTORY! SUCK IT PLAYER X!")
+            }
             updateScore();
             return true;
         }
