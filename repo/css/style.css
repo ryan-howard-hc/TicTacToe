@@ -27,3 +27,20 @@ td {
     display: none;
 }
 
+/* td {
+  width: 100px; 
+  height: 100px; 
+  text-align: center; 
+  vertical-align: middle;
+  color:#f0f0f0;
+}
+
+button.square-button {
+  width: 100%;
+  height: 100%; 
+  font-size: 24px;
+}
+
+button.square-button:hover {
+  background-color: #f0f0f0; 
+} */

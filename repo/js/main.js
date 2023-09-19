@@ -30,6 +30,8 @@ function clearScoreboard() {
     playerTwoWin = 0;
     stalemateWin = 0;
     updateScore();
+    resetBoard();
+
 }
 
 function attachTableToButton() {
@@ -52,7 +54,7 @@ function updateScore() {
 
 function createBOARD() {
     var board = document.createElement("table");
-    board.classList.add("table", "table-bordered");
+    board.classList.add("table", "table-bordered", "board");
 
     var rows = [
         ['1', '2', '3'],
@@ -65,10 +67,12 @@ function createBOARD() {
 
         row.forEach(function (value) {
             var cell = document.createElement("td");
-            cell.classList.add("d-table-cell", "p-5", "bd-highlight");
+            cell.classList.add("d-table-cell", "bd-highlight");
+            cell.style.width = "100px"; // Set the width for each cell
+            cell.style.height = "100px"; // Set the height for each cell
 
             var button = document.createElement("button");
-            button.classList.add("btn", "btn-primary", "choose-tile");
+            button.classList.add("btn", "btn-primary", "choose-tile", "square-button");
             button.textContent = "";
             button.setAttribute("data-selected", "false");
             button.addEventListener("click", function () {
@@ -77,13 +81,7 @@ function createBOARD() {
                     button.setAttribute("data-selected", "true");
 
                     if (checkForWin(currentPlayerSymbol)) {
-                        // if (currentPlayerSymbol === 'X') {
-                        //     playerOneWin++;
-                        //     alert("Player X VICTORY! SUCK IT PLAYER O!");
-                        // } else {
-                        //     playerTwoWin++;
-                        //     alert("Player O VICTORY! SUCK IT PLAYER X!")
-                        // }
+                        // Handle win logic here
                     } else if (checkStalemate()) {
                         stalemateWin++;
                     }
